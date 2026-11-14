@@ -1,0 +1,87 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta http-equiv="refresh" content="300"><meta name="robots" content="noindex"><title>Gain-Share Campaign</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3e6df;--b1:#ff8a6b;--b2:#ffc7a8;--b3:#e9a3b4;--glass:rgba(255,255,255,.55);--edge:rgba(255,255,255,.75);--ink:#2b1815;--mute:#86665e;--line:rgba(120,70,60,.14);
+--ok:#0f8a5f;--okbg:rgba(15,138,95,.13);--warn:#a8650c;--warnbg:rgba(214,140,30,.16);--hot1:#ff7a55;--hot2:#e8483b;--hot3:#bf2f2c;--shadow:0 10px 40px rgba(120,50,35,.14);--trk:rgba(120,70,60,.12)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1b1110;--b1:#8a2a1e;--b2:#5a2418;--b3:#4a1d2c;--glass:rgba(48,30,27,.58);--edge:rgba(255,255,255,.09);--ink:#f8ece7;--mute:#c09e95;--line:rgba(255,255,255,.08);--ok:#3fd29a;--okbg:rgba(63,210,154,.14);--warn:#f2b45a;--warnbg:rgba(242,180,90,.14);--shadow:0 10px 40px rgba(0,0,0,.4);--trk:rgba(255,255,255,.08)}}
+:root[data-theme=dark]{--bg:#1b1110;--b1:#8a2a1e;--b2:#5a2418;--b3:#4a1d2c;--glass:rgba(48,30,27,.58);--edge:rgba(255,255,255,.09);--ink:#f8ece7;--mute:#c09e95;--line:rgba(255,255,255,.08);--ok:#3fd29a;--okbg:rgba(63,210,154,.14);--warn:#f2b45a;--warnbg:rgba(242,180,90,.14);--shadow:0 10px 40px rgba(0,0,0,.4);--trk:rgba(255,255,255,.08)}
+*{box-sizing:border-box;margin:0}html{background:var(--bg)}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 Inter,system-ui,sans-serif;padding:0 16px 64px;min-height:100vh;position:relative;overflow-x:hidden;font-variant-numeric:tabular-nums}
+body::before{content:"";position:fixed;inset:-20vmax;z-index:-1;pointer-events:none;background:radial-gradient(40vmax 34vmax at 12% 8%,var(--b1),transparent 60%),radial-gradient(38vmax 30vmax at 92% 18%,var(--b2),transparent 62%),radial-gradient(44vmax 36vmax at 60% 98%,var(--b3),transparent 60%);filter:blur(30px);opacity:.85}
+a{color:inherit}.wrap{max-width:1180px;margin:0 auto}
+.glass{background:var(--glass);border:1px solid var(--edge);border-radius:22px;box-shadow:var(--shadow);-webkit-backdrop-filter:blur(22px) saturate(1.4);backdrop-filter:blur(22px) saturate(1.4)}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px;padding:28px 4px 18px}
+h1{font-size:clamp(28px,5vw,44px);letter-spacing:-.03em;line-height:1.05;font-weight:800}h1 em{font-family:"Instrument Serif",serif;font-weight:400;color:var(--hot2)}
+.tag{color:var(--mute);margin-top:6px;max-width:640px}
+.hdr{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.pill{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;font-size:13px;font-weight:600;text-decoration:none}
+.live{width:8px;height:8px;border-radius:50%;background:var(--ok);animation:pulse 2s infinite}@keyframes pulse{50%{opacity:.35}}
+.grid{display:grid;gap:16px}.k4{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}.lastsend{display:block;font-weight:400;font-size:12px;color:var(--mute)}.k2{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
+.card{padding:20px}.card h2{font-size:15px;font-weight:700;letter-spacing:-.01em;margin-bottom:4px}.card .sub{color:var(--mute);font-size:13px;margin-bottom:14px}
+.kpi{display:flex;align-items:center;gap:16px}.ring{width:92px;height:92px;flex:none;transform:rotate(-90deg)}.ring circle{fill:none;stroke-width:10}
+.ring .trk{stroke:var(--trk)}.ring .val{stroke:url(#g);stroke:var(--hot2);stroke-linecap:round;transition:stroke-dashoffset 1.3s cubic-bezier(.2,.8,.2,1)}
+.kpi.ok .val{stroke:var(--ok)}.kpi.warn .val{stroke:var(--warn)}
+.kv b{display:block;font-size:34px;font-weight:800;letter-spacing:-.03em;line-height:1}.kv span{display:block;font-weight:600;margin-top:4px}.kv small{display:block;color:var(--mute);font-size:12.5px;line-height:1.35;margin-top:2px}
+.frow{display:grid;grid-template-columns:minmax(150px,210px) 1fr 64px;gap:12px;align-items:center;padding:7px 0}.fl b{display:block;font-size:14px}.fl small{color:var(--mute);font-size:12px}
+.bar{height:14px;border-radius:99px;background:var(--trk);overflow:hidden}.bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--hot1),var(--hot2));transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.bar i.t5,.bar i.t6{background:linear-gradient(90deg,#2fbf86,var(--ok))}.frow em{font-style:normal;font-weight:700;text-align:right}
+.chart{display:flex;align-items:flex-end;gap:6px;height:170px;padding-top:6px;overflow-x:auto}.col{flex:1 0 26px;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%}
+.stack{flex:1;width:100%;max-width:34px;display:flex;flex-direction:column;justify-content:flex-end;border-radius:9px;overflow:hidden;background:var(--trk)}.stack i{display:block;width:100%}
+.f1{background:linear-gradient(180deg,var(--hot1),var(--hot2))}.f2{background:var(--b2);opacity:.9}.col small{font-size:11px;color:var(--mute)}
+.legend{display:flex;gap:14px;font-size:12px;color:var(--mute);margin-top:10px}.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:9px 6px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}th{text-align:left;font-weight:600}thead th,thead td{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);font-weight:600}
+td small{color:var(--mute)}.mute{color:var(--mute);text-align:left}.scroll{overflow-x:auto}
+.note{font-size:13px;color:var(--mute);margin-top:12px}.note b{color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{padding:10px 14px;border-radius:14px;background:var(--trk);min-width:96px}.chip b{display:block;font-size:22px;font-weight:800}.chip small{color:var(--mute);font-size:12px}
+.offer{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}.step{padding:14px;border-radius:16px;background:var(--trk)}.step b{display:block;font-size:13px;color:var(--hot2);text-transform:uppercase;letter-spacing:.06em}.step p{font-size:14px;margin-top:4px}
+section{margin-top:16px}footer{color:var(--mute);font-size:12px;text-align:center;margin-top:28px}
+@media (max-width:560px){.frow{grid-template-columns:1fr 52px}.frow .bar{grid-column:1/-1;grid-row:2}.kv b{font-size:28px}.ring{width:76px;height:76px}}
+@media (prefers-reduced-motion:reduce){.bar i,.ring .val{transition:none}.live{animation:none}}
+</style></head><body><div class="wrap">
+<header><div><h1>Gain&#8209;share <em>campaign</em></h1><p class="tag">A free day observing the business, a written AI plan built to save $100,000 a year, and 20% of the savings they can see in their books. Nothing up front.</p></div>
+<div class="hdr"><span class="pill glass"><span class="live"></span>Updated <span data-stamp="2026-11-14T20:50:01.639Z">Nov 14, 2:50 PM</span></span><a class="pill glass" href="./">Main dashboard</a></div></header>
+<main id="m" data-stamp="2026-11-14T20:50:01.639Z">
+<div class="grid k4">
+<div class="card glass kpi "><svg viewBox="0 0 108 108" class="ring" aria-hidden="true"><circle cx="54" cy="54" r="44" class="trk"/><circle cx="54" cy="54" r="44" class="val" stroke-dasharray="276.5" stroke-dashoffset="276.5" data-off="276.5"/></svg>
+  <div class="kv"><b data-n="0">0</b><span>Said yes to a day</span><small>Goal: 1 by Nov 27, 14 days left</small></div></div>
+<div class="card glass kpi "><svg viewBox="0 0 108 108" class="ring" aria-hidden="true"><circle cx="54" cy="54" r="44" class="trk"/><circle cx="54" cy="54" r="44" class="val" stroke-dasharray="276.5" stroke-dashoffset="276.5" data-off="261.7"/></svg>
+  <div class="kv"><b data-n="155">155</b><span>People reached</span><small>5.3% of 2,903 · done about Mar 3</small></div></div>
+<div class="card glass kpi "><svg viewBox="0 0 108 108" class="ring" aria-hidden="true"><circle cx="54" cy="54" r="44" class="trk"/><circle cx="54" cy="54" r="44" class="val" stroke-dasharray="276.5" stroke-dashoffset="276.5" data-off="276.5"/></svg>
+  <div class="kv"><b data-n="0">0</b><span>Replied</span><small>0% of people reached · 0 said stop</small></div></div>
+<div class="card glass kpi "><svg viewBox="0 0 108 108" class="ring" aria-hidden="true"><circle cx="54" cy="54" r="44" class="trk"/><circle cx="54" cy="54" r="44" class="val" stroke-dasharray="276.5" stroke-dashoffset="276.5" data-off="0.0"/></svg>
+  <div class="kv"><b data-n="55">55</b><span>Gain-share emails today</span><small>55 first emails · last Nov 14, 2:21 PM</small></div></div>
+</div>
+<section class="card glass"><h2>From the list to a signed agreement</h2><p class="sub">Every person already emailed who is still eligible, and how far each one has got.</p><div class="frow"><div class="fl"><b>In the campaign</b><small>everyone it will reach</small></div><div class="bar"><i data-w="100.0" class="t0"></i></div><em>2,903</em></div><div class="frow"><div class="fl"><b>Email 1 sent</b><small>free day, plan, 20% of savings</small></div><div class="bar"><i data-w="5.3" class="t1"></i></div><em>155</em></div><div class="frow"><div class="fl"><b>Email 2 sent</b><small>where the savings hide</small></div><div class="bar"><i data-w="0.0" class="t2"></i></div><em>0</em></div><div class="frow"><div class="fl"><b>Email 3 sent</b><small>the risk sits with me</small></div><div class="bar"><i data-w="0.0" class="t3"></i></div><em>0</em></div><div class="frow"><div class="fl"><b>Replied</b><small>any human reply</small></div><div class="bar"><i data-w="0.0" class="t4"></i></div><em>0</em></div><div class="frow"><div class="fl"><b>Said yes to a day</b><small>outcomes.csv: observe</small></div><div class="bar"><i data-w="0.0" class="t5"></i></div><em>0</em></div><div class="frow"><div class="fl"><b>Agreement signed</b><small>outcomes.csv: signed</small></div><div class="bar"><i data-w="0.0" class="t6"></i></div><em>0</em></div></section>
+<section class="grid k2">
+<div class="card glass"><h2>Sent per day</h2><p class="sub">Since launch on Nov 13. About 40 first emails a sending day.</p><div class="chart"><div class="col" title="2026-11-13: 100 first, 0 follow-up"><div class="stack"><i class="f2" style="height:0%"></i><i class="f1" style="height:100%"></i></div><small>11/13</small></div><div class="col" title="2026-11-14: 55 first, 0 follow-up"><div class="stack"><i class="f2" style="height:0%"></i><i class="f1" style="height:55%"></i></div><small>11/14</small></div></div>
+<div class="legend"><span><i class="f1"></i>First email</span><span><i class="f2"></i>Email 2 or 3</span></div></div>
+<div class="card glass"><h2>Subject line test</h2><p class="sub">Each person always gets the same one of the two.</p><div class="scroll"><table><thead><tr><th>Subject</th><td>People</td><td>Replied</td><td>Yes</td><td>Stop</td></tr></thead><tbody><tr><th>{Company} cost savings</th><td>85</td><td>0 <small>0%</small></td><td>0</td><td>0 <small>0%</small></td></tr><tr><th>{Company} savings plan</th><td>70</td><td>0 <small>0%</small></td><td>0</td><td>0 <small>0%</small></td></tr></tbody></table></div><p class="note">Too early to call. Each subject needs about 300 people (now 85 and 70).</p></div>
+</section>
+<section class="grid k2">
+<div class="card glass"><h2>Inboxes</h2><p class="sub">First emails go from whichever inbox has room. Each follow-up goes from the inbox that sent email 1.</p><div class="scroll"><table><thead><tr><th>Inbox</th><td>Today</td><td>Sent</td><td>Replied</td><td>To reach</td></tr></thead><tbody><tr><th>Inbox A · gmail<small class="lastsend">last send Nov 14, 10:49 AM</small></th><td>15</td><td>75</td><td>0</td><td>2,188</td></tr><tr><th>Inbox B · demetri@<small class="lastsend">last send Nov 14, 2:21 PM</small></th><td>40</td><td>80</td><td>0</td><td>560</td></tr></tbody></table></div></div>
+<div class="card glass"><h2>LinkedIn follow-up</h2><p class="sub">No reply 24 hours after email 1 puts them on the 9:15 AM list, 20 a day.</p>
+<div class="chips"><div class="chip"><b>20</b><small>Listed</small></div><div class="chip"><b>0</b><small>Requested</small></div><div class="chip"><b>0</b><small>Accepted</small></div><div class="chip"><b>0</b><small>Messaged</small></div><div class="chip"><b>0</b><small>Said yes</small></div></div>
+<p class="note">2 daily lists so far. Fill the status column in each day's list to update these counts.</p></div>
+</section>
+<section class="grid k2">
+<div class="card glass"><h2>Who it is reaching</h2><p class="sub">Top audiences by people reached.</p><div class="scroll"><table><thead><tr><th>Audience</th><td>People</td><td>Replied</td></tr></thead><tbody><tr><th>hand-researched</th><td>155</td><td>0 <small>0%</small></td></tr></tbody></table></div></div>
+<div class="card glass"><h2>The offer</h2><p class="sub">What every email in this campaign says.</p><div class="offer">
+<div class="step"><b>Email 1</b><p>A free day observing the business. A written AI plan built to save $100,000 a year. 20% of measured savings, nothing up front.</p></div>
+<div class="step"><b>Email 2 · +2 days</b><p>The three places savings hide, and a quick way for them to put a number on it themselves.</p></div>
+<div class="step"><b>Email 3 · +4 days</b><p>Why it costs nothing up front: the risk sits with us. Ends on an open question.</p></div>
+<div class="step"><b>Health</b><p>0 bounced (0%) · 0 said stop (0%)</p></div></div></div>
+</section>
+</main>
+<footer>Counts only. No prospect names or addresses on this page. Republished every 5 minutes from the cold email sender's own log.</footer></div>
+<script>
+(function(){
+  function paint(){requestAnimationFrame(function(){document.querySelectorAll("[data-off]").forEach(function(c){c.style.strokeDashoffset=c.getAttribute("data-off")});document.querySelectorAll(".bar i[data-w]").forEach(function(b){b.style.width=b.getAttribute("data-w")+"%"})});}
+  paint();
+  // Live: a fresh copy goes to the "live" branch every 5 minutes; swap the numbers in without a reload.
+  var API="https://api.github.com/repos/DemetriAI/premierconnect-outreach/contents/gainshare.html?ref=live";
+  setInterval(function(){fetch(API,{cache:"no-cache",headers:{Accept:"application/vnd.github.raw"}}).then(function(r){return r.ok?r.text():null}).then(function(t){
+    if(!t)return;var m=new DOMParser().parseFromString(t,"text/html").getElementById("m"),cur=document.getElementById("m");
+    if(m&&cur&&m.getAttribute("data-stamp")!==cur.getAttribute("data-stamp")){cur.replaceWith(m);document.querySelectorAll("[data-stamp]")[0].textContent=new Date(m.getAttribute("data-stamp")).toLocaleString("en-US",{timeZone:"America/Chicago",month:"short",day:"numeric",hour:"numeric",minute:"2-digit"});paint();}
+  }).catch(function(){})},60000);
+})();
+</script></body></html>

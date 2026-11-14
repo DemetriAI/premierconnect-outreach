@@ -1,0 +1,404 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta http-equiv="refresh" content="300">
+<meta name="robots" content="noindex">
+<title>PremierConnect Outreach</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem("pc-rail")==="1")document.documentElement.classList.add("rail")}catch(e){}</script>
+<style>
+:root{--bg:#f3e6df;--b1:#ff8a6b;--b2:#ffc7a8;--b3:#e9a3b4;--glass:rgba(255,255,255,.52);--glass2:rgba(255,255,255,.72);--edge:rgba(255,255,255,.75);
+--ink:#2b1815;--mute:#86665e;--line:rgba(120,70,60,.14);--ok:#0f8a5f;--okbg:rgba(15,138,95,.13);--no:#c4381f;--nobg:rgba(196,56,31,.12);--warn:#a8650c;--warnbg:rgba(214,140,30,.16);
+--hot1:#ff7a55;--hot2:#e8483b;--hot3:#bf2f2c;--s0:#e8483b;--s1:#7a2a24;--shadow:0 10px 40px rgba(120,50,35,.14);
+--side1:rgba(226,86,66,.82);--side2:rgba(140,44,38,.86)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1b1110;--b1:#8a2a1e;--b2:#5a2418;--b3:#4a1d2c;--glass:rgba(48,30,27,.55);--glass2:rgba(62,40,36,.7);--edge:rgba(255,255,255,.09);
+--ink:#f8ece7;--mute:#c09e95;--line:rgba(255,255,255,.08);--ok:#3fd29a;--okbg:rgba(63,210,154,.14);--no:#ff8466;--nobg:rgba(255,132,102,.14);--warn:#f2b45a;--warnbg:rgba(242,180,90,.14);--s1:#f2b8a6;--shadow:0 10px 40px rgba(0,0,0,.4);
+--side1:rgba(120,36,28,.82);--side2:rgba(60,20,18,.9)}}
+:root[data-theme=dark]{--bg:#1b1110;--b1:#8a2a1e;--b2:#5a2418;--b3:#4a1d2c;--glass:rgba(48,30,27,.55);--glass2:rgba(62,40,36,.7);--edge:rgba(255,255,255,.09);
+--ink:#f8ece7;--mute:#c09e95;--line:rgba(255,255,255,.08);--ok:#3fd29a;--okbg:rgba(63,210,154,.14);--no:#ff8466;--nobg:rgba(255,132,102,.14);--warn:#f2b45a;--warnbg:rgba(242,180,90,.14);--s1:#f2b8a6;--shadow:0 10px 40px rgba(0,0,0,.4);
+--side1:rgba(120,36,28,.82);--side2:rgba(60,20,18,.9)}
+*{box-sizing:border-box;margin:0}
+html{background:var(--bg);scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 Inter,system-ui,sans-serif;padding:0 16px;min-height:100vh;position:relative;overflow-x:hidden;font-variant-numeric:tabular-nums}
+body::before{content:"";position:fixed;inset:-20vmax;z-index:-1;pointer-events:none;
+background:radial-gradient(40vmax 34vmax at 12% 8%,var(--b1),transparent 60%),radial-gradient(38vmax 30vmax at 92% 18%,var(--b2),transparent 62%),radial-gradient(44vmax 36vmax at 60% 98%,var(--b3),transparent 60%);filter:blur(30px);opacity:.85}
+a{color:inherit;text-decoration:none}
+.glass{background:var(--glass);border:1px solid var(--edge);border-radius:22px;box-shadow:var(--shadow);-webkit-backdrop-filter:blur(22px) saturate(1.4);backdrop-filter:blur(22px) saturate(1.4)}
+
+/* Layout: sidebar + content */
+.app{max-width:1440px;margin:0 auto;display:grid;grid-template-columns:252px minmax(0,1fr);gap:22px;padding:16px 0 72px;transition:grid-template-columns .35s cubic-bezier(.2,.8,.2,1)}
+.rail .app{grid-template-columns:78px minmax(0,1fr)}
+.side{position:sticky;top:16px;height:calc(100vh - 32px);display:flex;flex-direction:column;gap:6px;padding:14px 12px;border-radius:26px;color:#fff;overflow:hidden auto;
+background:linear-gradient(180deg,var(--side1),var(--side2));border:1px solid rgba(255,255,255,.22);box-shadow:0 18px 50px rgba(150,40,30,.28);-webkit-backdrop-filter:blur(22px) saturate(1.3);backdrop-filter:blur(22px) saturate(1.3)}
+.sb-top{display:flex;align-items:center;gap:10px;padding:4px 4px 8px;position:relative}
+.logo{width:38px;height:38px;flex:none;border-radius:12px;background:#fff;color:var(--hot2);display:grid;place-items:center;font-weight:800;font-size:17px;box-shadow:0 4px 14px rgba(0,0,0,.15)}
+.sb-name{line-height:1.2;min-width:0}.sb-name b{display:block;font-weight:700;letter-spacing:-.01em}.sb-name small{font-size:12px;opacity:.75}
+.collapse{margin-left:auto;width:28px;height:28px;flex:none;border-radius:50%;border:0;background:#fff;color:var(--hot3);display:grid;place-items:center;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.18);transition:transform .35s}
+.rail .collapse{transform:rotate(180deg)}
+.ask{display:flex;align-items:center;gap:9px;padding:7px 8px 7px 7px;border-radius:16px;background:rgba(0,0,0,.14);border:1px solid rgba(255,255,255,.16);margin-bottom:6px;cursor:text}
+.orb{width:26px;height:26px;flex:none;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#c9b5ff 35%,#ff9ab0 70%,#ff6a4d);box-shadow:0 0 14px rgba(255,180,220,.6)}
+.ask input{flex:1;min-width:0;background:none;border:0;outline:0;color:#fff;font:inherit;font-size:14px}.ask input::placeholder{color:rgba(255,255,255,.7)}
+.ask kbd{font:600 11px Inter,sans-serif;padding:2px 6px;border-radius:6px;background:rgba(255,255,255,.18);color:rgba(255,255,255,.85)}
+nav{display:flex;flex-direction:column;gap:2px}
+nav small,.side small.h{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.6;padding:12px 12px 4px}
+nav a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:14px;font-weight:500;font-size:14.5px;color:rgba(255,255,255,.92);position:relative;transition:background .2s,color .2s}
+nav a:hover{background:rgba(255,255,255,.12)}
+nav a.on{background:#fff;color:var(--ink);font-weight:600;box-shadow:0 6px 18px rgba(0,0,0,.14)}
+nav a svg{flex:none}
+nav a[hidden]{display:none}
+.bdg{margin-left:auto;font-style:normal;font-size:11px;font-weight:700;min-width:20px;height:20px;padding:0 6px;border-radius:99px;display:grid;place-items:center;background:#ffb341;color:#4a2200}
+.bdg.no{background:#ff3b3b;color:#fff}
+.sb-foot{margin-top:auto;border-top:1px solid rgba(255,255,255,.18);padding-top:10px}
+.who{display:flex;align-items:center;gap:10px;padding:6px;border-radius:14px}.who:hover{background:rgba(255,255,255,.1)}
+.av{width:36px;height:36px;flex:none;border-radius:50%;background:#fff;color:var(--hot3);display:grid;place-items:center;font-weight:800;position:relative}
+.av::after{content:"";position:absolute;right:-1px;bottom:-1px;width:10px;height:10px;border-radius:50%;background:#3fd29a;border:2px solid var(--side2)}
+.who b{display:block;font-size:14px}.who small{display:block;font-size:12px;opacity:.75;line-height:1.3}
+.rail .sb-name,.rail nav small,.rail nav a span,.rail .ask input,.rail .ask kbd,.rail .who div{display:none}
+.rail .sb-top{flex-direction:column}.rail .collapse{margin:4px 0 0}
+.rail nav a{justify-content:center;padding:11px}.rail .ask{justify-content:center;background:none;border:0}
+.rail .bdg{position:absolute;top:3px;right:6px;min-width:16px;height:16px;font-size:10px;padding:0 4px}
+
+.content{min-width:0}
+section,[id]{scroll-margin-top:16px}
+header{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap;padding:10px 0 18px}
+.greet{font-size:clamp(26px,3.6vw,40px);line-height:1.1;letter-spacing:-.035em;font-weight:700}
+.sub{color:var(--mute);margin-top:6px;font-size:14px}
+.asof{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mute);padding:8px 13px;border-radius:99px}
+.asof small{opacity:.75}
+.refresh{font:inherit;font-size:13px;font-weight:700;color:inherit;padding:8px 15px;border-radius:99px;border:0;cursor:pointer}
+.refresh:disabled{opacity:.6;cursor:wait}
+.dark{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;padding:9px 16px;border-radius:99px;background:#1d1210;color:#fff;box-shadow:0 8px 22px rgba(30,10,8,.25)}
+.hdr-r{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.live{width:8px;height:8px;border-radius:50%;background:var(--ok);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(15,138,95,.5)}70%{box-shadow:0 0 0 9px rgba(15,138,95,0)}100%{box-shadow:0 0 0 0 rgba(15,138,95,0)}}
+
+.top{display:grid;grid-template-columns:1.7fr 1fr;gap:14px}
+.hero{position:relative;overflow:hidden;border-radius:24px;padding:24px 26px;color:#fff;background:linear-gradient(135deg,var(--hot1),var(--hot2) 55%,var(--hot3));box-shadow:0 18px 50px rgba(200,55,40,.32);display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 85% 10%,rgba(255,255,255,.28),transparent 60%);pointer-events:none}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);padding:4px 11px;border-radius:99px}
+.eyebrow i{width:6px;height:6px;border-radius:50%;background:#fff}
+.hero h2{font-size:clamp(24px,3.6vw,34px);line-height:1.1;letter-spacing:-.03em;font-weight:700;margin:14px 0 8px;max-width:22ch;color:#fff;text-transform:none;display:block}
+.hero p{opacity:.9;font-size:14px;max-width:46ch}
+.minis{display:flex;gap:0;margin-top:18px;flex-wrap:wrap}.minis div{padding:0 18px;border-left:1px solid rgba(255,255,255,.35)}.minis div:first-child{padding-left:0;border:0}
+.minis b{display:block;font-size:24px;font-weight:700;letter-spacing:-.02em}.minis span{font-size:12px;opacity:.85}
+.hbtn{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;position:relative;z-index:1}
+.hbtn a{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;padding:10px 18px;border-radius:99px;border:1.5px solid rgba(255,255,255,.7)}
+.hbtn a:first-child{background:#fff;color:#2b1815;border-color:#fff}
+.ring{position:relative;width:140px;height:140px;z-index:1}.ring svg{transform:rotate(-90deg)}
+.ring .track{stroke:rgba(255,255,255,.25)}.ring .val{stroke:#fff;stroke-linecap:round;transition:stroke-dashoffset 1.4s cubic-bezier(.2,.8,.2,1)}
+.ring div{position:absolute;inset:0;display:grid;place-items:center;text-align:center}.ring b{font-size:30px;font-weight:700;line-height:1}.ring small{display:block;font-size:11px;opacity:.85;margin-top:3px}
+.today{padding:20px 18px 16px}
+.date{display:flex;align-items:center;gap:12px;margin-bottom:14px}.date b{font-size:46px;font-weight:700;letter-spacing:-.04em;line-height:1;color:var(--hot2)}
+.date div{line-height:1.25}.date strong{display:block;font-weight:600}.date span{font-size:13px;color:var(--mute)}
+.strip{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;padding:6px;border-radius:16px;background:var(--glass2);border:1px solid var(--edge)}
+.wd{text-align:center;padding:6px 0 5px;border-radius:12px;line-height:1.15}.wd small{display:block;font-size:10.5px;color:var(--mute)}.wd b{font-size:15px}
+.wd i{display:block;width:5px;height:5px;border-radius:50%;margin:4px auto 0}.wd i.y{background:var(--hot2)}
+.wd.on{background:linear-gradient(180deg,var(--hot1),var(--hot3));color:#fff;box-shadow:0 6px 16px rgba(200,55,40,.35)}.wd.on small{color:rgba(255,255,255,.85)}.wd.on i.y{background:#fff}
+.wd.off b{opacity:.4}
+.ev{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:14px;background:var(--glass2);border:1px solid var(--edge);margin-top:8px}
+.ev>span{font-weight:600;font-size:14px;padding-right:12px;border-right:3px solid var(--hot2)}
+.ev:nth-of-type(2)>span{border-color:#f4a261}
+.ev div{flex:1;min-width:0;line-height:1.3}.ev b{display:block;font-size:14px}.ev small{font-size:12.5px;color:var(--mute)}
+.ev em{font-style:normal;font-size:11px;font-weight:700;color:var(--hot2);background:var(--nobg);padding:3px 9px;border-radius:99px}
+.row{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:14px;background:var(--glass2);border:1px solid var(--edge);margin-top:8px}
+.row b{flex:1;font-weight:600;font-size:14px}.row span{font-size:13px;color:var(--mute)}.row em{font-style:normal;font-weight:700;color:var(--ink)}
+.dot{width:9px;height:9px;border-radius:50%;flex:none}.ok .dot,.dot.ok{background:var(--ok)}.no .dot,.dot.no{background:var(--no)}.warn .dot{background:var(--warn)}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
+.stat{padding:16px 16px 14px;transition:transform .25s ease;position:relative;overflow:hidden}.stat:hover{transform:translateY(-5px)}
+.stat .ic{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--glass2);border:1px solid var(--edge);color:var(--ink)}
+.stat .hd{display:flex;justify-content:space-between;align-items:flex-start}
+.chip{font-size:11px;font-weight:700;padding:3px 9px;border-radius:99px;background:var(--okbg);color:var(--ok);white-space:nowrap}.chip.no{background:var(--nobg);color:var(--no)}.chip.warn{background:var(--warnbg);color:var(--warn)}
+.stat>b{display:block;font-size:34px;font-weight:700;letter-spacing:-.03em;margin-top:14px;line-height:1.1}
+.stat .ft{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-top:6px}.stat .ft span{font-size:13px;color:var(--mute);line-height:1.35}.stat .ft strong{display:block;color:var(--ink);font-size:14px}
+.spark{width:84px;height:30px;flex:none;color:var(--hot2)}
+.stat.hot{background:linear-gradient(135deg,var(--hot1),var(--hot3));color:#fff;border-color:rgba(255,255,255,.3)}.stat.hot .ft span,.stat.hot .ft strong{color:#fff}.stat.hot .ft span{opacity:.85}
+.stat.hot .ic{background:rgba(255,255,255,.2);color:#fff;border-color:rgba(255,255,255,.3)}.stat.hot .spark{color:#fff}.stat.hot .chip{background:#fff;color:var(--hot3)}
+
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.tile{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:18px;transition:transform .2s,background .2s}.tile:hover{transform:translateY(-2px);background:var(--glass2)}
+.tile .ic{width:38px;height:38px;flex:none;border-radius:50%;display:grid;place-items:center;background:var(--glass2);border:1px solid var(--edge)}
+.tile b{display:block;font-size:14.5px;line-height:1.25}.tile small{color:var(--mute);font-size:13px}
+
+.duo{display:grid;grid-template-columns:1.6fr 1fr;gap:14px;margin-top:14px}
+.card{padding:20px 22px}.card h3{font-size:20px;letter-spacing:-.02em}.card>p{color:var(--mute);font-size:13.5px;margin-top:2px}
+.chd{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.seg{display:inline-flex;padding:4px;border-radius:99px;background:var(--glass2);border:1px solid var(--edge)}
+.seg button{font:inherit;font-size:13px;font-weight:500;color:inherit;border:0;background:none;padding:6px 13px;border-radius:99px;cursor:pointer}
+.seg button.on{background:#1d1210;color:#fff;font-weight:600}
+.legend{display:flex;gap:16px;font-size:13px;margin:14px 0 6px}.legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+.pane{display:none;grid-template-columns:auto 1fr;gap:8px}.pane.on{display:grid}
+.yl{display:flex;flex-direction:column;justify-content:space-between;font-size:11px;color:var(--mute);height:180px;padding-bottom:20px;text-align:right}
+.plot svg{width:100%;height:160px;display:block;background:repeating-linear-gradient(to bottom,var(--line) 0 1px,transparent 1px 80px)}
+.plot rect.s0{fill:var(--s0)}.plot rect.s1{fill:var(--s1)}.plot g:hover rect{opacity:.75}
+.ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--mute);margin-top:4px}
+.donut{width:180px;height:180px;margin:18px auto 14px;border-radius:50%;display:grid;place-items:center;position:relative}
+.donut::before{content:"";position:absolute;inset:18px;border-radius:50%;background:var(--glass2);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.donut div{position:relative;text-align:center;line-height:1.1}.donut b{font-size:30px;font-weight:700;letter-spacing:-.03em}.donut small{display:block;font-size:12px;color:var(--mute);margin-top:4px}
+ul.lg{list-style:none;padding:0;display:grid;gap:6px;font-size:13.5px}ul.lg li{display:flex;align-items:center;gap:8px}ul.lg i{width:9px;height:9px;border-radius:50%;flex:none}
+ul.lg b{margin-left:auto}ul.lg span{color:var(--mute);font-size:12.5px;width:84px;text-align:right}
+
+h2{font-size:13px;text-transform:uppercase;letter-spacing:.09em;color:var(--mute);margin:38px 0 12px;font-weight:600;display:flex;align-items:center;gap:10px}
+h2 .chip{text-transform:none;letter-spacing:0}
+.inboxes{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.inbox{padding:18px}.ihead{display:flex;justify-content:space-between;align-items:center}.ihead b{font-size:17px}
+.pill{font-size:12px;font-weight:600;padding:3px 10px;border-radius:99px;display:inline-flex;align-items:center;gap:6px}.pill.ok{background:var(--okbg);color:var(--ok)}.pill.no{background:var(--nobg);color:var(--no)}
+.addr{display:block;color:var(--mute);font-size:13px;word-break:break-all;margin-top:2px}
+.big{margin:16px 0 8px;display:flex;align-items:baseline;gap:6px}.big b{font-size:34px;font-weight:700;letter-spacing:-.03em}.big span{color:var(--mute);font-size:14px}
+.bar{height:8px;border-radius:99px;background:var(--line);overflow:hidden}.bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--hot1),var(--hot2));width:0;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.inbox small{display:block;color:var(--mute);font-size:13px;margin-top:10px}
+.last{margin-top:10px;font-size:14px;font-weight:600}.last.stale{color:#d64545}.last.stale::after{content:" · not sending, check the sender"}
+
+.blocks{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;position:relative}
+.blk{padding:18px;position:relative}.blk>b{display:block;font-size:17px;margin-top:2px;letter-spacing:-.01em}.blk>small{color:var(--mute);font-size:13px}
+.blk:first-child{background:linear-gradient(135deg,var(--hot1),var(--hot3));color:#fff;border-color:rgba(255,255,255,.3)}.blk:first-child>small,.blk:first-child .bn span{color:rgba(255,255,255,.85)}
+.blk:first-child .tag{background:rgba(255,255,255,.2);color:#fff;border-color:rgba(255,255,255,.3)}
+.bn{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+.bn strong{display:block;font-size:21px;font-weight:700;letter-spacing:-.02em}.bn span{font-size:11.5px;color:var(--mute);line-height:1.25;display:block}
+.tag{display:inline-block;font-size:11.5px;font-weight:600;border-radius:99px;padding:3px 10px;background:var(--glass2);border:1px solid var(--edge);color:var(--hot2);margin-bottom:10px}
+
+.dhead{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;padding:18px 22px;margin-bottom:12px}
+.mring{position:relative;width:86px;height:86px}.mring svg{transform:rotate(-90deg)}.mring .track{stroke:var(--line)}.mring .val{stroke:var(--ok);stroke-linecap:round;transition:stroke-dashoffset 1.4s cubic-bezier(.2,.8,.2,1)}
+.mring b{position:absolute;inset:0;display:grid;place-items:center;font-size:19px}
+.dhead h3{font-size:19px;letter-spacing:-.02em}.dhead p{color:var(--mute);font-size:14px;margin-top:2px;max-width:70ch}
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+.dgroup{padding:16px 18px}.dgroup h3{font-size:15px;margin-bottom:6px}
+.dgroup ul{list-style:none;padding:0}
+.dgroup li{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line)}.dgroup li:first-child{border-top:0}
+.dgroup li .dot{margin-top:6px}.dgroup li div{flex:1;min-width:0}.dgroup li b{display:block;font-size:14px}.dgroup li small{display:block;color:var(--mute);font-size:13px;line-height:1.4}
+.dgroup li em{font-style:normal;font-size:11px;font-weight:700;padding:3px 9px;border-radius:99px;background:var(--okbg);color:var(--ok);white-space:nowrap}
+.dgroup li.no em{background:var(--nobg);color:var(--no)}.dgroup li.warn em{background:var(--warnbg);color:var(--warn)}
+
+.pace{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.pace .glass{padding:20px}
+.pace b{font-size:34px;font-weight:700;letter-spacing:-.03em;display:block}.pace p{color:var(--mute);font-size:14px;margin-top:4px}
+.scroll{overflow-x:auto;border-radius:20px}
+table{width:100%;border-collapse:separate;border-spacing:0}.glass.t{padding:4px 6px}
+th,td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}th{text-align:left;font-weight:500;white-space:normal}
+thead th{font-size:12px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em;text-align:right}thead th:first-child{text-align:left}
+td span{color:var(--mute);font-size:13px;margin-left:4px}td.z{color:var(--mute)}tr:last-child th,tr:last-child td{border-bottom:0}
+.mail{overflow:hidden}.mail .subj{padding:15px 20px;border-bottom:1px solid var(--line);font-weight:600}.mail .subj span{color:var(--mute);font-weight:400;margin-right:6px}
+.mail .body{padding:18px 20px;display:grid;gap:12px}.mail .foot{color:var(--mute);font-size:13px;padding:14px 20px 18px;border-top:1px solid var(--line)}
+dl{display:grid;grid-template-columns:1fr 1fr;gap:10px}.term{padding:13px 15px;border-radius:16px}dt{font-weight:600}dd{margin:2px 0 0}
+.note{color:var(--mute);font-size:14px;margin-top:10px;max-width:75ch}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+@media(max-width:1180px){.stats{grid-template-columns:1fr 1fr}.blocks{grid-template-columns:1fr 1fr}.duo,.top{grid-template-columns:1fr}.pace{grid-template-columns:1fr 1fr}}
+@media(max-width:860px){
+  .app,.rail .app{display:block;padding-top:0}
+  .side{position:sticky;top:0;z-index:5;height:auto;flex-direction:row;align-items:center;gap:8px;padding:8px;margin:0 -16px 14px;border-radius:0 0 20px 20px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none}
+  .side::-webkit-scrollbar{display:none}
+  .sb-top{padding:0}.sb-name,.collapse,.ask,.sb-foot,nav small{display:none}
+  nav{flex-direction:row;gap:4px}nav a{white-space:nowrap;padding:8px 12px;font-size:13.5px}nav a svg{display:none}
+  .rail nav a span{display:inline}.rail nav a svg{display:none}
+  .bdg{margin-left:6px}
+  section,[id]{scroll-margin-top:70px}
+  .tiles,.dgrid,.two,.inboxes,dl{grid-template-columns:1fr}
+}
+@media(max-width:600px){.hero{grid-template-columns:1fr;padding:22px 20px}.minis{flex-wrap:nowrap}.minis div{padding:0 12px;min-width:0}.minis b{font-size:21px}.minis span{font-size:11.5px}.ring{justify-self:start;width:120px;height:120px}.ring svg{width:120px;height:120px}
+  .stats,.blocks,.pace{grid-template-columns:1fr}.stat.hot{grid-column:auto}th,td{padding:9px 8px;font-size:14px}.dhead{grid-template-columns:1fr}.hdr-r .asof{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style></head><body><main class="app" data-stamp="2026-11-14T20:40:01.612Z">
+
+<aside class="side">
+<div class="sb-top"><span class="logo">P</span><div class="sb-name"><b>PremierConnect</b><small>Outreach workspace</small></div><button class="collapse" type="button" aria-label="Collapse the sidebar"><svg width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='m15 18-6-6 6-6'/></svg></button></div>
+<label class="ask"><span class="orb"></span><input type="search" placeholder="Jump to..." aria-label="Jump to a section" autocomplete="off"><kbd>Ctrl K</kbd></label>
+<nav aria-label="Sections">
+<small>Main</small>
+<a href="#top" class="on"><svg width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z'/></svg><span>Overview</span></a>
+<a href="#inboxes"><svg width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M22 12h-6l-2 3h-4l-2-3H2'/><path d='M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z'/></svg><span>Inboxes</span></a>
+<a href="#week"><svg width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><rect x='3' y='3' width='18' height='18' rx='2'/><path d='M3 9h18M3 15h18M9 3v18'/></svg><span>This week</span></a>
+<a href="#results"><svg width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M3 3v18h18'/><path d='m7 15 4-4 3 3 5-6'/></svg><span>Results</span></a>
+<a href="#replies"><svg width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z'/></svg><span>Replies</span></a>
+<small>Pipeline</small>
+<a href="#sequence"><svg width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='m12 2 10 5-10 5L2 7z'/><path d='m2 17 10 5 10-5'/><path d='m2 12 10 5 10-5'/></svg><span>Sequence</span></a>
+<a href="#queue"><svg width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><circle cx='9' cy='7' r='4'/><path d='M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2'/><path d='M16 3.1a4 4 0 0 1 0 7.8M22 21v-2a4 4 0 0 0-3-3.9'/></svg><span>Waiting to send</span></a>
+<a href="#email"><svg width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><rect x='2' y='4' width='20' height='16' rx='2'/><path d='m22 7-10 6L2 7'/></svg><span>The email</span></a>
+<a href="gainshare.html"><svg width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M3 3v18h18'/><path d='m7 15 4-4 3 3 5-6'/></svg><span>Gain-share</span></a>
+<small>System</small>
+<a href="#diag"><svg width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M22 12h-4l-3 9L9 3l-3 9H2'/></svg><span>Diagnostic</span><em class='bdg no'>5</em></a>
+<a href="#rules"><svg width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/></svg><span>Rules</span></a>
+</nav>
+<div class="sb-foot"><a class="who" href="#diag"><span class="av">D</span><div><b>Demetri</b><small>Updated Sat, Nov 14, 2:40 PM CT</small></div></a></div>
+</aside>
+
+<div class="content">
+<header id="top"><div><h1 class="greet">Good afternoon, Demetri</h1><p class="sub">Saturday, November 14 · 5 things need your attention</p></div>
+<div class="hdr-r"><div class="asof glass"><span class="live"></span>Updated Sat, Nov 14, 2:40 PM CT <small class="chk"></small></div><button class="refresh glass" type="button">Refresh</button><a class="dark" href="#diag"><svg width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M22 12h-4l-3 9L9 3l-3 9H2'/></svg> Diagnostic</a></div></header>
+
+<section class="top">
+<div class="hero">
+<div><span class="eyebrow"><i></i>Sending live</span>
+<h2>128 emails out today. 0 replied today.</h2>
+<p>Two inboxes sending cold email for PremierConnect AI: oil and gas, minerals, investment firms and realtors. Mon to Fri 8 AM to 7 PM Central, Saturday 8 AM to 2 PM.</p>
+<div class="minis"><div><b data-n="7971">7,971</b><span>emails sent</span></div><div><b data-n="3800">3,800</b><span>people emailed</span></div><div><b data-n="9">9</b><span>meetings booked</span></div></div>
+<div class="hbtn"><a href="#sequence">See the sequence ↗</a><a href="#queue">+ Leads needed</a></div></div>
+<div class="ring"><svg width="140" height="140" viewBox="0 0 132 132"><circle class="track" cx="66" cy="66" r="56" fill="none" stroke-width="11"/><circle class="val" cx="66" cy="66" r="56" fill="none" stroke-width="11" stroke-dasharray="351.9" stroke-dashoffset="351.9" data-off="0.0"/></svg><div><span><b data-n="100">100</b><b>%</b><small>of today's limit</small></span></div></div>
+</div>
+<div class="glass today"><div class="date"><b>14</b><div><strong>Saturday, November 14</strong><span>128 of 100 across both inboxes</span></div></div>
+<div class="strip"><div class='wd'><small>M</small><b>9</b><i class='y'></i></div><div class='wd'><small>T</small><b>10</b><i class='y'></i></div><div class='wd'><small>W</small><b>11</b><i class='y'></i></div><div class='wd'><small>T</small><b>12</b><i class='y'></i></div><div class='wd'><small>F</small><b>13</b><i class='y'></i></div><div class='wd on'><small>S</small><b>14</b><i class='y'></i></div><div class='wd off'><small>S</small><b>15</b><i></i></div></div><div class='ev'><span>16:00</span><div><b>Reply check</b><small>Warm replies emailed to you</small></div><em>Next</em></div><div class='ev'><span>19:00</span><div><b>Out-of-office list</b><small>Backup contacts, waiting on your OK</small></div></div><div class='row ok'><span class='dot'></span><b>Gmail inbox</b><span><em>28</em> / 0</span></div><div class='row ok'><span class='dot'></span><b>Company inbox</b><span><em>100</em> / 100</span></div></div>
+</section>
+
+<div class="stats">
+<div class="glass stat"><div class="hd"><span class="ic"><svg width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='m22 2-7 20-4-9-9-4Z'/><path d='M22 2 11 13'/></svg></span><span class="chip">2,152 this week</span></div><b data-n="7971">7,971</b><div class="ft"><span><strong>Emails sent</strong>last 14 days below</span><svg class='spark' viewBox='0 0 100 30' preserveAspectRatio='none' aria-hidden='true'><polyline points='0.0,10.5 9.1,17.2 18.2,22.1 27.3,13.7 36.4,21.8 45.5,28.0 54.5,4.0 63.6,14.3 72.7,16.3 81.8,19.7 90.9,19.8 100.0,23.8' fill='none' stroke='currentColor' stroke-width='2' vector-effect='non-scaling-stroke' stroke-linejoin='round' stroke-linecap='round'/></svg></div></div>
+<div class="glass stat"><div class="hd"><span class="ic"><svg width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><circle cx='9' cy='7' r='4'/><path d='M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2'/><path d='M16 3.1a4 4 0 0 1 0 7.8M22 21v-2a4 4 0 0 0-3-3.9'/></svg></span><span class="chip">0.4% of people replied</span></div><b data-n="3800">3,800</b><div class="ft"><span><strong>People emailed</strong>new people per day</span><svg class='spark' viewBox='0 0 100 30' preserveAspectRatio='none' aria-hidden='true'><polyline points='0.0,22.2 9.1,27.6 18.2,28.0 27.3,21.0 36.4,20.1 45.5,28.0 54.5,4.0 63.6,17.6 72.7,21.4 81.8,24.0 90.9,27.9 100.0,28.0' fill='none' stroke='currentColor' stroke-width='2' vector-effect='non-scaling-stroke' stroke-linejoin='round' stroke-linecap='round'/></svg></div></div>
+<div class="glass stat hot"><div class="hd"><span class="ic"><svg width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><rect x='3' y='4' width='18' height='18' rx='2'/><path d='M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4'/></svg></span><span class="chip">2 clients</span></div><b data-n="9">9</b><div class="ft"><span><strong>Meetings booked</strong>from 14 replies</span><svg class='spark' viewBox='0 0 100 30' preserveAspectRatio='none' aria-hidden='true'><polyline points='0.0,28.0 9.1,28.0 18.2,28.0 27.3,4.0 36.4,28.0 45.5,28.0 54.5,12.0 63.6,28.0 72.7,28.0 81.8,20.0 90.9,28.0 100.0,28.0' fill='none' stroke='currentColor' stroke-width='2' vector-effect='non-scaling-stroke' stroke-linejoin='round' stroke-linecap='round'/></svg></div></div>
+<div class="glass stat"><div class="hd"><span class="ic"><svg width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><circle cx='12' cy='12' r='9'/><path d='m8 12 3 3 5-6'/></svg></span><span class="chip ">2.8% bounced</span></div><b>97.2%</b><div class="ft"><span><strong>Delivered</strong>43 asked to stop</span></div></div>
+</div>
+
+<div class="tiles"><a class='glass tile' href='#replies'><span class='ic'><svg width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z'/></svg></span><div><b>Hot replies</b><small>None waiting. Your phone buzzes within a minute of one</small></div></a><a class='glass tile' href='#replies'><span class='ic'><svg width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z'/></svg></span><div><b>Replies to answer</b><small>3 in the last 7 days</small></div></a><a class='glass tile' href='#diag'><span class='ic'><svg width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M16 3h5v5M21 3l-7 7M8 21H3v-5M3 21l7-7'/></svg></span><div><b>Out-of-office backups</b><small>12 waiting on your OK</small></div></a><a class='glass tile' href='#queue'><span class='ic'><svg width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><circle cx='9' cy='7' r='4'/><path d='M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2M19 8v6M22 11h-6'/></svg></span><div><b>Leads to find</b><small>Not worked out</small></div></a><a class='glass tile' href='#results'><span class='ic'><svg width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><rect x='3' y='4' width='18' height='18' rx='2'/><path d='M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4'/></svg></span><div><b>Meetings booked</b><small>9 so far, 2 became clients</small></div></a><a class='glass tile' href='#sequence'><span class='ic'><svg width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='m12 2 10 5-10 5L2 7z'/><path d='m2 17 10 5 10-5'/><path d='m2 12 10 5 10-5'/></svg></span><div><b>Next new angle</b><small>Block 2 opens Nov 17</small></div></a><a class='glass tile' href='#diag'><span class='ic'><svg width='17' height='17' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M22 12h-4l-3 9L9 3l-3 9H2'/></svg></span><div><b>Diagnostic</b><small>5 checks need you</small></div></a></div>
+
+<div class="duo">
+<div class="glass card" data-chart><div class="chd"><div><h3>Emails sent</h3><p>7,971 emails over 33 send days, about 242 a day.</p></div><div class="seg"><button type='button' data-range='2w' class='on'>2 weeks</button><button type='button' data-range='6w'>6 weeks</button><button type='button' data-range='all'>All time</button></div></div>
+<div class="legend"><span><i style="background:var(--s0)"></i>Gmail inbox</span><span><i style="background:var(--s1)"></i>Company inbox</span></div><div class='pane on' data-pane='2w'><div class='yl'><span>737</span><span>369</span><span>0</span></div><div class='plot'><svg viewBox='0 0 120 160' preserveAspectRatio='none' role='img' aria-label='Emails sent per day'><g><rect class='s0' x='1.5' y='49.5' width='7' height='110.5'/><rect class='s1' x='1.5' y='49.5' width='7' height='0.0'/><title>Mon, Nov 2: 536 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='11.5' y='91.3' width='7' height='68.7'/><rect class='s1' x='11.5' y='91.3' width='7' height='0.0'/><title>Tue, Nov 3: 333 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='21.5' y='122.9' width='7' height='37.1'/><rect class='s1' x='21.5' y='122.9' width='7' height='0.0'/><title>Wed, Nov 4: 180 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='31.5' y='88.4' width='7' height='71.6'/><rect class='s1' x='31.5' y='69.7' width='7' height='18.8'/><title>Thu, Nov 5: 347 Gmail inbox, 91 Company inbox</title></g><g><rect class='s0' x='41.5' y='131.1' width='7' height='28.9'/><rect class='s1' x='41.5' y='120.8' width='7' height='10.3'/><title>Fri, Nov 6: 140 Gmail inbox, 50 Company inbox</title></g><g><rect class='s0' x='51.5' y='160.0' width='7' height='0.0'/><rect class='s1' x='51.5' y='160.0' width='7' height='0.0'/><title>Sat, Nov 7: 0 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='61.5' y='84.7' width='7' height='75.3'/><rect class='s1' x='61.5' y='8.0' width='7' height='76.7'/><title>Mon, Nov 9: 365 Gmail inbox, 372 Company inbox</title></g><g><rect class='s0' x='71.5' y='116.3' width='7' height='43.7'/><rect class='s1' x='71.5' y='73.0' width='7' height='43.3'/><title>Tue, Nov 10: 212 Gmail inbox, 210 Company inbox</title></g><g><rect class='s0' x='81.5' y='121.0' width='7' height='39.0'/><rect class='s1' x='81.5' y='85.8' width='7' height='35.3'/><title>Wed, Nov 11: 189 Gmail inbox, 171 Company inbox</title></g><g><rect class='s0' x='91.5' y='132.2' width='7' height='27.8'/><rect class='s1' x='91.5' y='107.6' width='7' height='24.5'/><title>Thu, Nov 12: 135 Gmail inbox, 119 Company inbox</title></g><g><rect class='s0' x='101.5' y='129.1' width='7' height='30.9'/><rect class='s1' x='101.5' y='108.2' width='7' height='20.8'/><title>Fri, Nov 13: 150 Gmail inbox, 101 Company inbox</title></g><g><rect class='s0' x='111.5' y='154.2' width='7' height='5.8'/><rect class='s1' x='111.5' y='133.6' width='7' height='20.6'/><title>Sat, Nov 14: 28 Gmail inbox, 100 Company inbox</title></g></svg><div class='ticks'><span>Nov 2</span><span>Nov 7</span><span>Nov 14</span></div></div></div><div class='pane' data-pane='6w'><div class='yl'><span>737</span><span>369</span><span>0</span></div><div class='plot'><svg viewBox='0 0 360 160' preserveAspectRatio='none' role='img' aria-label='Emails sent per day'><g><rect class='s0' x='1.5' y='160.0' width='7' height='0.0'/><rect class='s1' x='1.5' y='160.0' width='7' height='0.0'/><title>Mon, Oct 5: 0 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='11.5' y='160.0' width='7' height='0.0'/><rect class='s1' x='11.5' y='160.0' width='7' height='0.0'/><title>Tue, Oct 6: 0 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='21.5' y='149.7' width='7' height='10.3'/><rect class='s1' x='21.5' y='149.7' width='7' height='0.0'/><title>Wed, Oct 7: 50 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='31.5' y='102.5' width='7' height='57.5'/><rect class='s1' x='31.5' y='102.5' width='7' height='0.0'/><title>Thu, Oct 8: 279 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='41.5' y='99.6' width='7' height='60.4'/><rect class='s1' x='41.5' y='99.6' width='7' height='0.0'/><title>Fri, Oct 9: 293 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='51.5' y='135.7' width='7' height='24.3'/><rect class='s1' x='51.5' y='135.7' width='7' height='0.0'/><title>Sat, Oct 10: 118 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='61.5' y='141.2' width='7' height='18.8'/><rect class='s1' x='61.5' y='141.2' width='7' height='0.0'/><title>Mon, Oct 12: 91 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='71.5' y='132.8' width='7' height='27.2'/><rect class='s1' x='71.5' y='132.8' width='7' height='0.0'/><title>Tue, Oct 13: 132 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='81.5' y='113.6' width='7' height='46.4'/><rect class='s1' x='81.5' y='113.6' width='7' height='0.0'/><title>Wed, Oct 14: 225 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='91.5' y='160.0' width='7' height='0.0'/><rect class='s1' x='91.5' y='160.0' width='7' height='0.0'/><title>Thu, Oct 15: 0 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='101.5' y='120.2' width='7' height='39.8'/><rect class='s1' x='101.5' y='120.2' width='7' height='0.0'/><title>Fri, Oct 16: 193 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='111.5' y='142.7' width='7' height='17.3'/><rect class='s1' x='111.5' y='142.7' width='7' height='0.0'/><title>Sat, Oct 17: 84 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='121.5' y='129.5' width='7' height='30.5'/><rect class='s1' x='121.5' y='129.5' width='7' height='0.0'/><title>Mon, Oct 19: 148 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='131.5' y='124.9' width='7' height='35.1'/><rect class='s1' x='131.5' y='124.9' width='7' height='0.0'/><title>Tue, Oct 20: 170 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='141.5' y='127.4' width='7' height='32.6'/><rect class='s1' x='141.5' y='127.4' width='7' height='0.0'/><title>Wed, Oct 21: 158 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='151.5' y='109.1' width='7' height='50.9'/><rect class='s1' x='151.5' y='109.1' width='7' height='0.0'/><title>Thu, Oct 22: 247 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='161.5' y='106.4' width='7' height='53.6'/><rect class='s1' x='161.5' y='106.4' width='7' height='0.0'/><title>Fri, Oct 23: 260 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='171.5' y='140.2' width='7' height='19.8'/><rect class='s1' x='171.5' y='140.2' width='7' height='0.0'/><title>Sat, Oct 24: 96 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='181.5' y='118.1' width='7' height='41.9'/><rect class='s1' x='181.5' y='118.1' width='7' height='0.0'/><title>Mon, Oct 26: 203 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='191.5' y='127.2' width='7' height='32.8'/><rect class='s1' x='191.5' y='127.2' width='7' height='0.0'/><title>Tue, Oct 27: 159 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='201.5' y='94.2' width='7' height='65.8'/><rect class='s1' x='201.5' y='94.2' width='7' height='0.0'/><title>Wed, Oct 28: 319 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='211.5' y='132.0' width='7' height='28.0'/><rect class='s1' x='211.5' y='132.0' width='7' height='0.0'/><title>Thu, Oct 29: 136 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='221.5' y='48.6' width='7' height='111.4'/><rect class='s1' x='221.5' y='48.6' width='7' height='0.0'/><title>Fri, Oct 30: 540 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='231.5' y='110.7' width='7' height='49.3'/><rect class='s1' x='231.5' y='110.7' width='7' height='0.0'/><title>Sat, Oct 31: 239 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='241.5' y='49.5' width='7' height='110.5'/><rect class='s1' x='241.5' y='49.5' width='7' height='0.0'/><title>Mon, Nov 2: 536 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='251.5' y='91.3' width='7' height='68.7'/><rect class='s1' x='251.5' y='91.3' width='7' height='0.0'/><title>Tue, Nov 3: 333 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='261.5' y='122.9' width='7' height='37.1'/><rect class='s1' x='261.5' y='122.9' width='7' height='0.0'/><title>Wed, Nov 4: 180 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='271.5' y='88.4' width='7' height='71.6'/><rect class='s1' x='271.5' y='69.7' width='7' height='18.8'/><title>Thu, Nov 5: 347 Gmail inbox, 91 Company inbox</title></g><g><rect class='s0' x='281.5' y='131.1' width='7' height='28.9'/><rect class='s1' x='281.5' y='120.8' width='7' height='10.3'/><title>Fri, Nov 6: 140 Gmail inbox, 50 Company inbox</title></g><g><rect class='s0' x='291.5' y='160.0' width='7' height='0.0'/><rect class='s1' x='291.5' y='160.0' width='7' height='0.0'/><title>Sat, Nov 7: 0 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='301.5' y='84.7' width='7' height='75.3'/><rect class='s1' x='301.5' y='8.0' width='7' height='76.7'/><title>Mon, Nov 9: 365 Gmail inbox, 372 Company inbox</title></g><g><rect class='s0' x='311.5' y='116.3' width='7' height='43.7'/><rect class='s1' x='311.5' y='73.0' width='7' height='43.3'/><title>Tue, Nov 10: 212 Gmail inbox, 210 Company inbox</title></g><g><rect class='s0' x='321.5' y='121.0' width='7' height='39.0'/><rect class='s1' x='321.5' y='85.8' width='7' height='35.3'/><title>Wed, Nov 11: 189 Gmail inbox, 171 Company inbox</title></g><g><rect class='s0' x='331.5' y='132.2' width='7' height='27.8'/><rect class='s1' x='331.5' y='107.6' width='7' height='24.5'/><title>Thu, Nov 12: 135 Gmail inbox, 119 Company inbox</title></g><g><rect class='s0' x='341.5' y='129.1' width='7' height='30.9'/><rect class='s1' x='341.5' y='108.2' width='7' height='20.8'/><title>Fri, Nov 13: 150 Gmail inbox, 101 Company inbox</title></g><g><rect class='s0' x='351.5' y='154.2' width='7' height='5.8'/><rect class='s1' x='351.5' y='133.6' width='7' height='20.6'/><title>Sat, Nov 14: 28 Gmail inbox, 100 Company inbox</title></g></svg><div class='ticks'><span>Oct 5</span><span>Oct 24</span><span>Nov 14</span></div></div></div><div class='pane' data-pane='all'><div class='yl'><span>737</span><span>369</span><span>0</span></div><div class='plot'><svg viewBox='0 0 380 160' preserveAspectRatio='none' role='img' aria-label='Emails sent per day'><g><rect class='s0' x='1.5' y='159.6' width='7' height='0.4'/><rect class='s1' x='1.5' y='159.6' width='7' height='0.0'/><title>Fri, Oct 2: 2 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='11.5' y='160.0' width='7' height='0.0'/><rect class='s1' x='11.5' y='160.0' width='7' height='0.0'/><title>Sat, Oct 3: 0 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='21.5' y='160.0' width='7' height='0.0'/><rect class='s1' x='21.5' y='160.0' width='7' height='0.0'/><title>Mon, Oct 5: 0 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='31.5' y='160.0' width='7' height='0.0'/><rect class='s1' x='31.5' y='160.0' width='7' height='0.0'/><title>Tue, Oct 6: 0 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='41.5' y='149.7' width='7' height='10.3'/><rect class='s1' x='41.5' y='149.7' width='7' height='0.0'/><title>Wed, Oct 7: 50 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='51.5' y='102.5' width='7' height='57.5'/><rect class='s1' x='51.5' y='102.5' width='7' height='0.0'/><title>Thu, Oct 8: 279 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='61.5' y='99.6' width='7' height='60.4'/><rect class='s1' x='61.5' y='99.6' width='7' height='0.0'/><title>Fri, Oct 9: 293 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='71.5' y='135.7' width='7' height='24.3'/><rect class='s1' x='71.5' y='135.7' width='7' height='0.0'/><title>Sat, Oct 10: 118 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='81.5' y='141.2' width='7' height='18.8'/><rect class='s1' x='81.5' y='141.2' width='7' height='0.0'/><title>Mon, Oct 12: 91 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='91.5' y='132.8' width='7' height='27.2'/><rect class='s1' x='91.5' y='132.8' width='7' height='0.0'/><title>Tue, Oct 13: 132 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='101.5' y='113.6' width='7' height='46.4'/><rect class='s1' x='101.5' y='113.6' width='7' height='0.0'/><title>Wed, Oct 14: 225 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='111.5' y='160.0' width='7' height='0.0'/><rect class='s1' x='111.5' y='160.0' width='7' height='0.0'/><title>Thu, Oct 15: 0 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='121.5' y='120.2' width='7' height='39.8'/><rect class='s1' x='121.5' y='120.2' width='7' height='0.0'/><title>Fri, Oct 16: 193 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='131.5' y='142.7' width='7' height='17.3'/><rect class='s1' x='131.5' y='142.7' width='7' height='0.0'/><title>Sat, Oct 17: 84 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='141.5' y='129.5' width='7' height='30.5'/><rect class='s1' x='141.5' y='129.5' width='7' height='0.0'/><title>Mon, Oct 19: 148 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='151.5' y='124.9' width='7' height='35.1'/><rect class='s1' x='151.5' y='124.9' width='7' height='0.0'/><title>Tue, Oct 20: 170 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='161.5' y='127.4' width='7' height='32.6'/><rect class='s1' x='161.5' y='127.4' width='7' height='0.0'/><title>Wed, Oct 21: 158 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='171.5' y='109.1' width='7' height='50.9'/><rect class='s1' x='171.5' y='109.1' width='7' height='0.0'/><title>Thu, Oct 22: 247 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='181.5' y='106.4' width='7' height='53.6'/><rect class='s1' x='181.5' y='106.4' width='7' height='0.0'/><title>Fri, Oct 23: 260 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='191.5' y='140.2' width='7' height='19.8'/><rect class='s1' x='191.5' y='140.2' width='7' height='0.0'/><title>Sat, Oct 24: 96 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='201.5' y='118.1' width='7' height='41.9'/><rect class='s1' x='201.5' y='118.1' width='7' height='0.0'/><title>Mon, Oct 26: 203 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='211.5' y='127.2' width='7' height='32.8'/><rect class='s1' x='211.5' y='127.2' width='7' height='0.0'/><title>Tue, Oct 27: 159 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='221.5' y='94.2' width='7' height='65.8'/><rect class='s1' x='221.5' y='94.2' width='7' height='0.0'/><title>Wed, Oct 28: 319 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='231.5' y='132.0' width='7' height='28.0'/><rect class='s1' x='231.5' y='132.0' width='7' height='0.0'/><title>Thu, Oct 29: 136 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='241.5' y='48.6' width='7' height='111.4'/><rect class='s1' x='241.5' y='48.6' width='7' height='0.0'/><title>Fri, Oct 30: 540 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='251.5' y='110.7' width='7' height='49.3'/><rect class='s1' x='251.5' y='110.7' width='7' height='0.0'/><title>Sat, Oct 31: 239 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='261.5' y='49.5' width='7' height='110.5'/><rect class='s1' x='261.5' y='49.5' width='7' height='0.0'/><title>Mon, Nov 2: 536 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='271.5' y='91.3' width='7' height='68.7'/><rect class='s1' x='271.5' y='91.3' width='7' height='0.0'/><title>Tue, Nov 3: 333 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='281.5' y='122.9' width='7' height='37.1'/><rect class='s1' x='281.5' y='122.9' width='7' height='0.0'/><title>Wed, Nov 4: 180 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='291.5' y='88.4' width='7' height='71.6'/><rect class='s1' x='291.5' y='69.7' width='7' height='18.8'/><title>Thu, Nov 5: 347 Gmail inbox, 91 Company inbox</title></g><g><rect class='s0' x='301.5' y='131.1' width='7' height='28.9'/><rect class='s1' x='301.5' y='120.8' width='7' height='10.3'/><title>Fri, Nov 6: 140 Gmail inbox, 50 Company inbox</title></g><g><rect class='s0' x='311.5' y='160.0' width='7' height='0.0'/><rect class='s1' x='311.5' y='160.0' width='7' height='0.0'/><title>Sat, Nov 7: 0 Gmail inbox, 0 Company inbox</title></g><g><rect class='s0' x='321.5' y='84.7' width='7' height='75.3'/><rect class='s1' x='321.5' y='8.0' width='7' height='76.7'/><title>Mon, Nov 9: 365 Gmail inbox, 372 Company inbox</title></g><g><rect class='s0' x='331.5' y='116.3' width='7' height='43.7'/><rect class='s1' x='331.5' y='73.0' width='7' height='43.3'/><title>Tue, Nov 10: 212 Gmail inbox, 210 Company inbox</title></g><g><rect class='s0' x='341.5' y='121.0' width='7' height='39.0'/><rect class='s1' x='341.5' y='85.8' width='7' height='35.3'/><title>Wed, Nov 11: 189 Gmail inbox, 171 Company inbox</title></g><g><rect class='s0' x='351.5' y='132.2' width='7' height='27.8'/><rect class='s1' x='351.5' y='107.6' width='7' height='24.5'/><title>Thu, Nov 12: 135 Gmail inbox, 119 Company inbox</title></g><g><rect class='s0' x='361.5' y='129.1' width='7' height='30.9'/><rect class='s1' x='361.5' y='108.2' width='7' height='20.8'/><title>Fri, Nov 13: 150 Gmail inbox, 101 Company inbox</title></g><g><rect class='s0' x='371.5' y='154.2' width='7' height='5.8'/><rect class='s1' x='371.5' y='133.6' width='7' height='20.6'/><title>Sat, Nov 14: 28 Gmail inbox, 100 Company inbox</title></g></svg><div class='ticks'><span>Oct 2</span><span>Oct 23</span><span>Nov 14</span></div></div></div></div>
+<div class="glass card"><h3>Replies by email</h3><p>Which email in the sequence got the reply</p>
+<div class="donut" style="background:conic-gradient(#e8483b 0.0deg 180.0deg,#ff8a6b 180.0deg 308.6deg,#a82a27 308.6deg 360.0deg)"><div><b>14</b><small>replies</small></div></div><ul class="lg"><li><i style='background:#e8483b'></i>Block 1 email 1<b>7</b><span>4 meetings</span></li><li><i style='background:#ff8a6b'></i>Block 1 email 2<b>5</b><span>2 meetings</span></li><li><i style='background:#a82a27'></i>Block 1 email 3<b>2</b><span>2 meetings</span></li></ul></div>
+</div>
+
+<h2 id="inboxes">The two inboxes</h2>
+<div class="inboxes"><div class='glass inbox'><div class='ihead'><b>Gmail inbox</b><span class='pill ok'><span class='dot'></span>Sending</span></div><span class='addr'>premierconnectai@gmail.com</span><div class='big'><b data-n='28'>28</b><span>/ 0 today</span></div><div class='bar'><i data-w='0'></i></div><div class='last' data-at='2026-11-14T16:51:34.744Z' data-done='0'>Last email sent 10:51 AM</div><small>Today: 0 first emails, 28 follow-ups. 1,079 this week, 6,757 all time.</small></div><div class='glass inbox'><div class='ihead'><b>Company inbox</b><span class='pill ok'><span class='dot'></span>Sending</span></div><span class='addr'>demetri@premierconnectai.com</span><div class='big'><b data-n='100'>100</b><span>/ 100 today</span></div><div class='bar'><i data-w='100'></i></div><div class='last' data-at='2026-11-14T20:28:24.913Z' data-done='1'>Last email sent 2:28 PM</div><small>Today: 0 first emails, 100 follow-ups. 1,073 this week, 1,214 all time.</small></div></div>
+
+<h2 id="week">This week, day by day</h2>
+<div class="glass t scroll"><table><thead><tr><th>Day</th><th>Gmail inbox</th><th>Company inbox</th><th>Total</th><th>Replies</th><th>Stops</th><th>Bounces</th></tr></thead><tbody><tr><th>9 Mon</th><td>365</td><td>372</td><td><b>737</b></td><td>2</td><td>5</td><td>13</td></tr><tr><th>10 Tue</th><td>212</td><td>210</td><td><b>422</b></td><td>0</td><td>2</td><td>14</td></tr><tr><th>11 Wed</th><td>189</td><td>171</td><td><b>360</b></td><td>0</td><td>6</td><td>9</td></tr><tr><th>12 Thu</th><td>135</td><td>119</td><td><b>254</b></td><td>1</td><td>0</td><td>7</td></tr><tr><th>13 Fri</th><td>150</td><td>101</td><td><b>251</b></td><td>0</td><td>1</td><td>2</td></tr><tr><th>14 Sat</th><td>28</td><td>100</td><td><b>128</b></td><td>0</td><td>0</td><td>1</td></tr></tbody></table></div>
+
+<h2 id="results">Week by week</h2>
+<div class="glass t scroll"><table><thead><tr><th>Week of</th><th>Emails</th><th>New people</th><th>Replies</th><th>Stops</th><th>Bounces</th></tr></thead><tbody><tr><th>Nov 9</th><td>2,152</td><td>863</td><td>3</td><td>14</td><td>46</td></tr><tr><th>Nov 2</th><td>1,677</td><td>403</td><td>3</td><td>7</td><td>30</td></tr><tr><th>Oct 26</th><td>1,596</td><td>930</td><td>6</td><td>12</td><td>33</td></tr><tr><th>Oct 19</th><td>1,079</td><td>353</td><td>9</td><td>5</td><td>13</td></tr><tr><th>Oct 12</th><td>725</td><td>511</td><td>3</td><td>5</td><td>18</td></tr><tr><th>Oct 5</th><td>740</td><td>738</td><td>0</td><td>2</td><td>13</td></tr><tr><th>Sep 28</th><td>2</td><td>2</td><td>1</td><td>0</td><td>0</td></tr></tbody></table></div>
+<h2 id="replies">Replies, one by one</h2>
+<div class="glass t scroll"><table><thead><tr><th>When</th><th>Which email got the reply</th><th>Inbox</th><th>Result</th><th>Thread</th></tr></thead><tbody><tr><th>Nov 12, 1:37 PM</th><td>Block 1 email 1</td><td>Company inbox</td><td></td><td><a href='https://mail.google.com/mail/?authuser=demetri%40premierconnectai.com#all/1a1d143cb8fb62c2' target='_blank' rel='noopener'>Open in Gmail</a></td></tr><tr><th>Nov 9, 7:58 PM</th><td>Block 1 email 1</td><td>Gmail inbox</td><td></td><td><a href='https://mail.google.com/mail/?authuser=premierconnectai%40gmail.com#all/1a1c2ae1aa362021' target='_blank' rel='noopener'>Open in Gmail</a></td></tr><tr><th>Nov 5, 11:59 AM</th><td>Block 1 email 3</td><td>Gmail inbox</td><td>Meeting</td><td><a href='https://mail.google.com/mail/?authuser=premierconnectai%40gmail.com#all/1a1834ff60102e6e' target='_blank' rel='noopener'>Open in Gmail</a></td></tr><tr><th>Nov 5, 11:37 AM</th><td>Block 1 email 3</td><td>Gmail inbox</td><td>Meeting</td><td><a href='https://mail.google.com/mail/?authuser=premierconnectai%40gmail.com#all/1a15f3d9a55701a4' target='_blank' rel='noopener'>Open in Gmail</a></td></tr><tr><th>Oct 31, 9:59 AM</th><td>Block 1 email 1</td><td>Gmail inbox</td><td>Meeting</td><td><a href='https://mail.google.com/mail/?authuser=premierconnectai%40gmail.com#all/1a19277055c03a5a' target='_blank' rel='noopener'>Open in Gmail</a></td></tr><tr><th>Oct 29, 6:52 PM</th><td>Block 1 email 2</td><td>Gmail inbox</td><td></td><td><a href='https://mail.google.com/mail/?authuser=premierconnectai%40gmail.com#all/1a17dc1f2a15db2f' target='_blank' rel='noopener'>Open in Gmail</a></td></tr><tr><th>Oct 29, 1:57 PM</th><td>Block 1 email 1</td><td>Gmail inbox</td><td>Meeting</td><td><a href='https://mail.google.com/mail/?authuser=premierconnectai%40gmail.com#all/1a1836afe6140363' target='_blank' rel='noopener'>Open in Gmail</a></td></tr><tr><th>Oct 23, 9:48 AM</th><td>Block 1 email 2</td><td>Gmail inbox</td><td></td><td><a href='https://mail.google.com/mail/?authuser=premierconnectai%40gmail.com#all/1a15f60e9e4959e6' target='_blank' rel='noopener'>Open in Gmail</a></td></tr><tr><th>Oct 22, 1:28 AM</th><td>Block 1 email 2</td><td>Gmail inbox</td><td></td><td><a href='https://mail.google.com/mail/?authuser=premierconnectai%40gmail.com#all/1a1229f30603d21d' target='_blank' rel='noopener'>Open in Gmail</a></td></tr><tr><th>Oct 21, 1:46 PM</th><td>Block 1 email 1</td><td>Gmail inbox</td><td>Meeting</td><td><a href='https://mail.google.com/mail/?authuser=premierconnectai%40gmail.com#all/1a15fc5531335ddb' target='_blank' rel='noopener'>Open in Gmail</a></td></tr><tr><th>Oct 19, 2:05 PM</th><td>Block 1 email 2</td><td>Gmail inbox</td><td>Meeting</td><td><a href='https://mail.google.com/mail/?authuser=premierconnectai%40gmail.com#all/1a1218136a0901b5' target='_blank' rel='noopener'>Open in Gmail</a></td></tr><tr><th>Oct 16, 3:01 PM</th><td>Block 1 email 2</td><td>Gmail inbox</td><td>Meeting</td><td><a href='https://mail.google.com/mail/?authuser=premierconnectai%40gmail.com#all/1a11d1a314ae2994' target='_blank' rel='noopener'>Open in Gmail</a></td></tr><tr><th>Oct 12, 8:05 PM</th><td>Block 1 email 1</td><td>Gmail inbox</td><td>Meeting</td><td><a href='https://mail.google.com/mail/?authuser=premierconnectai%40gmail.com#all/1a11cb9806479cd0' target='_blank' rel='noopener'>Open in Gmail</a></td></tr><tr><th>Oct 3, 5:06 AM</th><td>Block 1 email 1</td><td>Gmail inbox</td><td></td><td><a href='https://mail.google.com/mail/?authuser=premierconnectai%40gmail.com#all/1a0fde999dfa7a40' target='_blank' rel='noopener'>Open in Gmail</a></td></tr></tbody></table></div>
+<p class="note">Each link opens that conversation in your own Gmail, so only you can read it. Names and the full back-and-forth are on <a href="https://samsung-pc.tail9b5c50.ts.net:8479/" target="_blank" rel="noopener">the private Replies page</a>, which opens only on your own PC and phone, never on this public page.</p>
+<h2>What is working: subject lines</h2>
+<div class="glass t scroll"><table><thead><tr><th>First subject line</th><th>People</th><th>Replied</th><th>Said stop</th><th>Meetings</th></tr></thead><tbody><tr><th>{Company} in AI answers</th><td>2,398</td><td>0.5%</td><td>1.4%</td><td>8</td></tr><tr><th>{Company} / the window on AI advantage is closing FAST</th><td>788</td><td>0.1%</td><td>1.0%</td><td>1</td></tr><tr><th>{Company} in motion</th><td>614</td><td>0.2%</td><td>0.2%</td><td>0</td></tr></tbody></table></div>
+<p class="note">Each person counted once, by the subject of the first email they got. Meetings come from the outcomes list Demetri keeps. Lines with under 20 people are folded into "other".</p>
+<h2>Who it goes to</h2>
+<div class="glass t scroll"><table><thead><tr><th>Audience</th><th>People</th><th>Replied</th><th>Meetings</th></tr></thead><tbody><tr><th>AI visibility, audience not recorded</th><td>2,196</td><td>0.5%</td><td>9</td></tr><tr><th>realtors (walkthrough videos)</th><td>614</td><td>0.2%</td><td>0</td></tr><tr><th>private equity firm</th><td>162</td><td>0.0%</td><td>0</td></tr><tr><th>hedge fund</th><td>114</td><td>0.0%</td><td>0</td></tr><tr><th>oil and gas title counsel</th><td>102</td><td>0.0%</td><td>0</td></tr><tr><th>oil and gas company</th><td>74</td><td>0.0%</td><td>0</td></tr><tr><th>realtor or brokerage</th><td>59</td><td>0.0%</td><td>0</td></tr><tr><th>mineral and royalty company</th><td>54</td><td>0.0%</td><td>0</td></tr><tr><th>land and title company</th><td>50</td><td>0.0%</td><td>0</td></tr><tr><th>oil and gas producer</th><td>47</td><td>0.0%</td><td>0</td></tr><tr><th>land services</th><td>43</td><td>0.0%</td><td>0</td></tr><tr><th>real estate firm</th><td>34</td><td>0.0%</td><td>0</td></tr><tr><th>petroleum consulting firm</th><td>34</td><td>0.0%</td><td>0</td></tr><tr><th></th><td>33</td><td>3.0%</td><td>0</td></tr><tr><th>oil and gas operators</th><td>23</td><td>0.0%</td><td>0</td></tr><tr><th>independent operators</th><td>20</td><td>0.0%</td><td>0</td></tr><tr><th>real estate brokerage</th><td>20</td><td>0.0%</td><td>0</td></tr><tr><th>other</th><td>121</td><td>0.0%</td><td>0</td></tr></tbody></table></div>
+
+<h2 id="sequence">The sequence <span class="chip">your three reasons, then all three</span></h2>
+<div class="blocks"><div class='glass blk'><span class='tag'>Block 1 · 3 emails</span><b>Makes them money</b><small>Get found when buyers ask ChatGPT</small><div class='bn'><div><strong data-n='1882'>1,882</strong><span>in progress</span></div><div><strong data-n='1009'>1,009</strong><span>waiting for the next</span></div><div><strong>14</strong><span>replies</span></div></div></div><div class='glass blk'><span class='tag'>Block 2 · 2 emails · after 14 days</span><b>Saves them time</b><small>Hours back on routine follow-up</small><div class='bn'><div><strong data-n='0'>0</strong><span>in progress</span></div><div><strong data-n='0'>0</strong><span>waiting for the next</span></div><div><strong>0</strong><span>replies</span></div></div></div><div class='glass blk'><span class='tag'>Block 3 · 2 emails · after 21 days</span><b>Makes the job easier</b><small>Less busywork, records kept current</small><div class='bn'><div><strong data-n='0'>0</strong><span>in progress</span></div><div><strong data-n='0'>0</strong><span>waiting for the next</span></div><div><strong>0</strong><span>replies</span></div></div></div><div class='glass blk'><span class='tag'>Block 4 · 2 emails · after 28 days</span><b>All three in one</b><small>Reply 1, 2 or 3</small><div class='bn'><div><strong data-n='0'>0</strong><span>in progress</span></div><div><strong data-n='0'>0</strong><span>waiting for the next</span></div><div><strong>0</strong><span>replies</span></div></div></div><div class='glass blk'><span class='tag'>Block 5 · 2 emails · after 30 days</span><b>ai-referrals</b><small></small><div class='bn'><div><strong data-n='0'>0</strong><span>in progress</span></div><div><strong data-n='0'>0</strong><span>waiting for the next</span></div><div><strong>0</strong><span>replies</span></div></div></div><div class='glass blk'><span class='tag'>Block 6 · 2 emails · after 30 days</span><b>ai-afterhours</b><small></small><div class='bn'><div><strong data-n='0'>0</strong><span>in progress</span></div><div><strong data-n='0'>0</strong><span>waiting for the next</span></div><div><strong>0</strong><span>replies</span></div></div></div><div class='glass blk'><span class='tag'>Block 7 · 2 emails · after 30 days</span><b>ai-paperwork</b><small></small><div class='bn'><div><strong data-n='0'>0</strong><span>in progress</span></div><div><strong data-n='0'>0</strong><span>waiting for the next</span></div><div><strong>0</strong><span>replies</span></div></div></div><div class='glass blk'><span class='tag'>Block 8 · 2 emails · after 30 days</span><b>ai-90days</b><small></small><div class='bn'><div><strong data-n='0'>0</strong><span>in progress</span></div><div><strong data-n='0'>0</strong><span>finished</span></div><div><strong>0</strong><span>replies</span></div></div></div></div>
+<p class="note">Next wave: block 2 opens Tuesday, Nov 17, with 427 people due that week (1 more already due, sent as room allows). New angles take at most NaN emails per inbox a day, so new people keep flowing.</p>
+
+<h2 id="queue">Waiting to send</h2>
+<div class="pace">
+<div class="glass"><span class="tag">New people in the queue</span><b>1,273</b><p>Approved and never emailed. At 100 a day across both inboxes, minus follow-ups, that is about 13 send days of first emails.</p></div>
+<div class="glass"><span class="tag">Inside a block</span><b>2,503</b><p>People partway through a block who have not replied, stopped or bounced. Each gets the next email 48 hours after the last.</p></div>
+<div class="glass"><span class="tag">Steady pace</span><b>(not worked out)</b><p>New people a week the two inboxes can take once every angle is running. Each person gets up to 17 emails across the four reasons.</p></div>
+</div>
+
+<h2 id="email">The email</h2>
+<div class="glass mail"><div class="subj"><span>Subject</span>{company} in AI answers</div>
+<div class="body"><p>Hello {first name},</p><p>{company} is a {noun} based in {city}.</p><p>When a {asker} asks AI for a {noun} in {city}, does {company} come up?</p><p>I run PremierConnect AI out of Austin, and we help companies get recommended by ChatGPT, Gemini and Perplexity.</p><p>Would {slots} work for a 15-minute call where I run those questions live for {company}, yes or no?</p><p>Best regards,<br>Demetri Panagiotou<br>PremierConnect AI</p></div>
+<div class="foot">Ends with a one-line opt-out ("just reply stop") and the postal address. Email 2 and email 3 are one short bump each, in the same thread.</div></div>
+
+<h2 id="diag">Diagnostic</h2>
+<div class="glass dhead"><div class="mring"><svg width="86" height="86" viewBox="0 0 86 86"><circle class="track" cx="43" cy="43" r="36" fill="none" stroke-width="8"/><circle class="val" cx="43" cy="43" r="36" fill="none" stroke-width="8" stroke-dasharray="226.2" stroke-dashoffset="226.2" data-off="75.4"/></svg><b>67%</b></div>
+<div><h3>14 of 21 checks green, 5 need you.</h3><p>Rerun on this laptop every 5 minutes: the sender, the scheduled jobs, the laptop's power, the sender's own tests, list health, and the cadence checked line by line against your master screenshots.</p></div></div>
+<div class="dgrid"><div class='glass dgroup'><h3>Sending</h3><ul><li class='ok'><span class='dot'></span><div><b>Sender</b><small>Both inboxes sent in the last 15 minutes, hit today&#39;s limit, or are waiting on their next due email.</small></div><em>OK</em></li><li class='ok'><span class='dot'></span><div><b>Laptop power</b><small>On the charger.</small></div><em>OK</em></li><li class='no'><span class='dot'></span><div><b>Sender self-check</b><small>A sender rule failed its own test. Ask Pluma to run the sender test.</small></div><em>Fix</em></li><li class='ok' data-fresh><span class='dot'></span><div><b>This page</b><small>Republished every 5 minutes.</small></div><em>OK</em></li></ul></div><div class='glass dgroup'><h3>Scheduled jobs</h3><ul><li class='ok'><span class='dot'></span><div><b>Sender</b><small>Sends Mon to Sat from 8 AM, last ran Sat 2:30 PM.</small></div><em>OK</em></li><li class='ok'><span class='dot'></span><div><b>Reply check</b><small>Emails you warm replies at noon and 4 PM, last ran Sat 12:00 PM.</small></div><em>OK</em></li><li class='ok'><span class='dot'></span><div><b>Out-of-office contacts</b><small>Lists backup contacts every day at 7 PM, last ran Fri 7:00 PM.</small></div><em>OK</em></li><li class='ok'><span class='dot'></span><div><b>Sunday review</b><small>Sends the weekly report Sunday at 6 PM, last ran Sun 6:00 PM.</small></div><em>OK</em></li><li class='ok'><span class='dot'></span><div><b>Autopilot</b><small>Checks every 10 minutes, drafts replies, watches the sender, last ran Sat 2:33 PM.</small></div><em>OK</em></li><li class='ok'><span class='dot'></span><div><b>PremierConnect dashboard</b><small>Republishes this page every 5 minutes, last ran Sat 2:40 PM.</small></div><em>OK</em></li></ul></div><div class='glass dgroup'><h3>List health</h3><ul><li class='warn'><span class='dot'></span><div><b>Bounces, last 7 days</b><small>3.4% of 863 new people. Under 3% keeps Gmail from filtering.</small></div><em>Check</em></li><li class='warn'><span class='dot'></span><div><b>Stops, last 7 days</b><small>1.0% asked to stop. Under 1% is healthy.</small></div><em>Check</em></li><li class='warn'><span class='dot'></span><div><b>Leads for next week</b><small>Could not work out next week&#39;s lead need.</small></div><em>Check</em></li><li class='warn'><span class='dot'></span><div><b>Out-of-office backups</b><small>12 found in the last 7 days, waiting on your OK before anyone is emailed.</small></div><em>Check</em></li></ul></div><div class='glass dgroup'><h3>Cadence vs your screenshots</h3><ul><li class='ok'><span class='dot'></span><div><b>Follow-up 2 to 3 days later</b><small>Each follow-up goes 2 days after the email before it, in the same thread.</small></div><em>OK</em></li><li class='ok'><span class='dot'></span><div><b>Wait 2 weeks, then the second reason</b><small>14 days after the last email of the block before.</small></div><em>OK</em></li><li class='ok'><span class='dot'></span><div><b>Wait 3 weeks, then the third reason</b><small>21 days after the last email of the block before.</small></div><em>OK</em></li><li class='ok'><span class='dot'></span><div><b>Wait 4 weeks, then all three combined</b><small>28 days after the last email of the block before.</small></div><em>OK</em></li><li class='ok'><span class='dot'></span><div><b>Reasons in order: money, time, easier job</b><small>Get found in AI answers, then hours back, then less busywork.</small></div><em>OK</em></li><li class='warn'><span class='dot'></span><div><b>Two emails per reason</b><small>Reason 1 sends 3. Email 3 booked 2 of your 9 meetings, so it stays until you say otherwise.</small></div><em>Your call</em></li><li class='warn'><span class='dot'></span><div><b>Keep going every month with new copy</b><small>The sequence stops after the all-three email. Each new month needs copy you approve first.</small></div><em>Your call</em></li></ul></div></div>
+
+<h2 id="rules">The rules the sender follows</h2>
+<dl><div class='glass term'><dt>Mailboxes</dt><dd>premierconnectai@gmail.com and demetri@premierconnectai.com. Each new person is handed to whichever inbox has room.</dd></div><div class='glass term'><dt>Send hours</dt><dd>Mon to Fri 8 AM to 7 PM Central. Saturday 9 AM to 3 PM. Never Sunday.</dd></div><div class='glass term'><dt>Pace</dt><dd>One email every 2 to 4 minutes per inbox, a different gap each time.</dd></div><div class='glass term'><dt>Daily limit</dt><dd>0 Gmail, 100 company per day, follow-ups first, then new people.</dd></div><div class='glass term'><dt>Follow-ups</dt><dd>3 emails 48 hours apart in one thread, then 7 new angles (time back, easier job, all three), 2 emails each in their own thread, 14, 21, 28, 30, 30, 30, 30 days apart. New angles use at most 50% of the daily limit.</dd></div><div class='glass term'><dt>One per company</dt><dd>One new person per company every 30 days, and one follow-up per company per day.</dd></div><div class='glass term'><dt>Who is taken out</dt><dd>Anyone who replies, says stop or bounces, plus the do-not-email list, before every send.</dd></div><div class='glass term'><dt>Days off</dt><dd>Nov 23 to Nov 27, Dec 21 to Jan 4.</dd></div><div class='glass term'><dt>Emergency stop</dt><dd>A file named HALT in the sender folder stops every send until it is deleted.</dd></div></dl>
+</div>
+</main>
+<script>
+(function(){
+  var still = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function paint(count){
+    requestAnimationFrame(function(){
+      document.querySelectorAll("[data-off]").forEach(function(c){ c.style.strokeDashoffset = c.getAttribute("data-off"); });
+      document.querySelectorAll(".bar i[data-w]").forEach(function(b){ b.style.width = b.getAttribute("data-w") + "%"; });
+    });
+    if (still || !count) return;
+    document.querySelectorAll("[data-n]").forEach(function(el){
+      var end = +el.getAttribute("data-n"); if (!end) return;
+      var t0 = null, dur = 1200;
+      function step(t){ t0 = t0 || t; var k = Math.min(1, (t - t0) / dur), v = Math.round(end * (1 - Math.pow(1 - k, 3)));
+        el.textContent = v.toLocaleString("en-US"); if (k < 1) requestAnimationFrame(step); }
+      requestAnimationFrame(step);
+    });
+  }
+  paint(true);
+
+  // Minutes since each inbox last sent, and since this page was republished, recounted every 30 s in the viewer's browser,
+  // so a stopped sender or a stopped dashboard job shows here even though neither can republish the page to say so.
+  function ages(){
+    var ct = new Date(new Date().toLocaleString("en-US", {timeZone: "America/Chicago"})), h = ct.getHours(), wd = ct.getDay(),
+        open = (wd >= 1 && wd <= 5 && h >= 8 && h < 19) || (wd === 6 && h >= 8 && h < 14);
+    document.querySelectorAll(".last[data-at]").forEach(function(el){
+      if (!el.dataset.base) el.dataset.base = el.textContent;
+      var m = Math.max(0, Math.round((Date.now() - Date.parse(el.dataset.at)) / 60000));
+      el.textContent = el.dataset.base + " · " + (m < 1 ? "just now" : m < 120 ? m + " min ago" : Math.round(m / 60) + " h ago");
+      el.classList.toggle("stale", open && m > 15 && el.dataset.done !== "1");
+    });
+    var f = document.querySelector("[data-fresh]"), st = main() && Date.parse(main().getAttribute("data-stamp"));
+    if (f && st) { var a = Math.round((Date.now() - st) / 60000), bad = a > 12;
+      f.className = bad ? "no" : "ok"; f.querySelector("small").textContent = (bad ? "Last republished " + a + " min ago. The dashboard job may have stopped." : "Republished every 5 minutes, last " + (a < 1 ? "just now" : a + " min ago") + ".");
+      f.querySelector("em").textContent = bad ? "Fix" : "OK"; }
+  }
+
+  // Sidebar: collapse to an icon rail (remembered in this browser), jump-to search, and the section you are in.
+  function rail(){ var on = document.documentElement.classList.toggle("rail"); try { localStorage.setItem("pc-rail", on ? "1" : "0"); } catch (e) {} }
+  var spy = null;
+  function bind(){
+    var links = [].slice.call(document.querySelectorAll("nav a"));
+    var kbd = document.querySelector(".ask kbd"); if (kbd && /Mac|iPhone|iPad/.test(navigator.platform)) kbd.textContent = "⌘K";
+    if (spy) spy.disconnect();
+    if (!("IntersectionObserver" in window)) return;
+    spy = new IntersectionObserver(function(es){
+      es.forEach(function(en){ if (!en.isIntersecting) return;
+        links.forEach(function(a){ a.classList.toggle("on", a.getAttribute("href") === "#" + en.target.id); }); });
+    }, {rootMargin: "-10% 0px -80% 0px"});
+    links.forEach(function(a){ var t = document.querySelector(a.getAttribute("href")); if (t) spy.observe(t); });
+  }
+  bind(); ages(); setInterval(ages, 30000);
+  document.addEventListener("input", function(e){
+    if (!e.target.closest || !e.target.closest(".ask")) return;
+    var q = e.target.value.trim().toLowerCase();
+    document.querySelectorAll("nav a").forEach(function(a){ a.hidden = !!q && a.textContent.toLowerCase().indexOf(q) < 0; });
+  });
+  document.addEventListener("keydown", function(e){
+    var box = document.querySelector(".ask input");
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") { e.preventDefault(); if (document.documentElement.classList.contains("rail")) rail(); box && box.focus(); return; }
+    if (e.target === box && e.key === "Enter") { var hit = document.querySelector("nav a:not([hidden])"); if (hit) { hit.click(); box.value = ""; box.dispatchEvent(new Event("input", {bubbles: true})); box.blur(); } }
+    if (e.target === box && e.key === "Escape") { box.value = ""; box.dispatchEvent(new Event("input", {bubbles: true})); box.blur(); }
+  });
+
+  // Live: a fresh copy goes to the "live" branch every 5 minutes. The API answers within about a minute;
+  // if it rate-limits this viewer, raw.githubusercontent (up to 5 min behind) stands in.
+  var API = "https://api.github.com/repos/DemetriAI/premierconnect-outreach/contents/index.html?ref=live",
+      RAW = "https://raw.githubusercontent.com/DemetriAI/premierconnect-outreach/live/index.html",
+      EVERY = 60000, rawUntil = 0, timer = null, busy = false;
+  function main(){ return document.querySelector("main"); }
+  function say(t){ var c = document.querySelector(".chk"); if (c) c.textContent = t; }
+  function check(){
+    if (busy) return; busy = true;
+    var btn = document.querySelector(".refresh"); if (btn) { btn.disabled = true; btn.textContent = "Checking"; }
+    var useRaw = Date.now() < rawUntil;
+    fetch(useRaw ? RAW + "?t=" + Date.now() : API, {cache: "no-cache", headers: useRaw ? {} : {Accept: "application/vnd.github.raw"}})
+      .then(function(r){ if (r.status === 403 || r.status === 429) { rawUntil = Date.now() + 15 * 60000; throw new Error("limited"); } if (!r.ok) throw new Error(r.status); return r.text(); })
+      .then(function(html){
+        var doc = new DOMParser().parseFromString(html, "text/html"), css = doc.querySelector("style");
+        // A redesign changes the stylesheet, and swapping only <main> would pour new markup into the old CSS (iPhone, 2026-11-10).
+        if (css && css.textContent !== document.querySelector("style").textContent) { location.reload(); return; }
+        var fresh = doc.querySelector("main"), typing = document.activeElement && document.activeElement.closest && document.activeElement.closest(".ask");
+        if (fresh && !typing && fresh.getAttribute("data-stamp") > main().getAttribute("data-stamp")) {
+          var y = window.scrollY, pane = (document.querySelector("[data-range].on") || {}).dataset;
+          main().replaceWith(fresh); window.scrollTo(0, y); if (pane) pick(pane.range); paint(false); bind(); ages(); }
+        say("· checked " + new Date().toLocaleTimeString([], {hour: "numeric", minute: "2-digit"}));
+      })
+      .catch(function(){ say(useRaw ? "· live check failed, retrying" : "· switching to backup feed"); })
+      .then(function(){
+        busy = false;
+        var b = document.querySelector(".refresh"); if (b) { b.disabled = false; b.textContent = "Refresh"; }
+        clearTimeout(timer); timer = setTimeout(check, EVERY);
+      });
+  }
+  function pick(k){
+    document.querySelectorAll("[data-range]").forEach(function(b){ b.classList.toggle("on", b.dataset.range === k); });
+    document.querySelectorAll("[data-pane]").forEach(function(p){ p.classList.toggle("on", p.dataset.pane === k); });
+  }
+  document.addEventListener("click", function(e){
+    var t = e.target.closest ? e.target : null; if (!t) return;
+    if (t.closest(".refresh")) check();
+    if (t.closest(".collapse")) rail();
+    var r = t.closest("[data-range]"); if (r) pick(r.dataset.range);
+  });
+  document.addEventListener("visibilitychange", function(){ if (!document.hidden) check(); });
+  check();
+})();
+</script>
+</body></html>
